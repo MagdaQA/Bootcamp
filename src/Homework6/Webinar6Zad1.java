@@ -11,8 +11,8 @@ public class Webinar6Zad1 {
 
         char[] zmianaNaChar = text.toCharArray();
 
-
             for (int i = 0; i <= zmianaNaChar.length; i++) // przejście przez tablicę
+
 
                 if (zmianaNaChar[i] == 'ę')
 

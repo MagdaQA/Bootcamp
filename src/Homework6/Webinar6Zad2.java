@@ -1,16 +1,14 @@
 package Homework6;
 
+import com.sun.xml.internal.fastinfoset.util.CharArray;
+
 public class Webinar6Zad2 {
     public static void main(String[] args) {
 
-        String[] Testuj = new String[] {"t", "e", "s", "t", "u", "j"};
+        String textTestuj = "Testuj";
 
-        System.out.printf(Testuj[5]);
-        System.out.printf(Testuj[4]);
-        System.out.printf(Testuj[3]);
-        System.out.printf(Testuj[2]);
-        System.out.printf(Testuj[1]);
-        System.out.printf(Testuj[0]);
+        String reverse = new StringBuffer(textTestuj).reverse().toString();
+        System.out.println(reverse);
 
     }
   }
