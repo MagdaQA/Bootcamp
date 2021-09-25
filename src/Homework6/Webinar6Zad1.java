@@ -8,16 +8,17 @@ import java.util.ArrayList;
 public class Webinar6Zad1 {
     public static void main(String[] args) {
         String text = "Uczę się Java i chcę automatyzować testy";
-        char[] zmianaNaChar = text.toCharArray(); //zamiana Stringa na tablicę elementów
 
-        //jak zidentyfikować elementy tablicy?
-        //jak program rozpozna "ę" skoro to element tablicy?
-        // jak program będzie wiedział na kórym miejscu jest ę?
+        char[] zmianaNaChar = text.toCharArray();
+
+
+            for (int i = 0; i <= zmianaNaChar.length; i++) // przejście przez tablicę
+
+                if (zmianaNaChar[i] == 'ę')
+
+                    System.out.println(i);
 
         }
+
+
     }
-
-
-
-
-
