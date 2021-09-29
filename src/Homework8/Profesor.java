@@ -22,7 +22,7 @@ public class Profesor extends UniversityEmployee {
 
     @Override
     public void goToUniversityCanteen() {
-        System.out.println("Profesorowie jedzą od dostawcy y"); // dlaczego się nie wyświetla?
+        System.out.println("Profesorowie jedzą od dostawcy y");
     }
 }
 
