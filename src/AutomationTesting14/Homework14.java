@@ -29,5 +29,6 @@ public class Homework14 extends BaseTest {
         //lub:
         //System.out.println(driver.findElements(By.tagName("href")));
         //System.out.println(driver.findElements(By.tagName("img")));
+        //
     }
 }
