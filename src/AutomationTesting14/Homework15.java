@@ -28,7 +28,7 @@ public class Homework15 extends BaseTest {
 
         WebElement contactWithShop = driver.findElement(By.cssSelector("#link-static-page-contact-2"));
         //WebElement contactWithShop2 = driver.findElement(By.id("link-static-page-contact-2"));
-        //WebDriverWait wait = new WebDriverWait(driver, 10);
+        WebDriverWait wait = new WebDriverWait(driver, 10);
 
         WebElement selectSubject = driver.findElement(By.cssSelector("#content > section > form > section > div:nth-child(2) > div > select"));
         Select selectDFromDropdown = new Select(selectSubject);
