@@ -70,7 +70,7 @@ public class Homework14 extends BaseTest {
     }
     @Test
     public void taskFiveCalculatePrice() {
-        driver.get("http://demo.guru99.com/payment-gateway/index.php");
+        driver.get("https://demo.guru99.com/payment-gateway/index.php");
 
         //znalezienie miejsca, gdzie jest grupa dropdownów
         //nie znajduje:
@@ -86,14 +86,17 @@ public class Homework14 extends BaseTest {
         //wybór konkretnej opcji z listy
         selectDFromDropdown.selectByValue("5");
 
-         //szukanie przycisku Buy Now i klik
-       // WebElement selectBuyNow = driver.findElement(By.tagName("Buy Now")); //nie działa,
-       WebElement selectBuyNow2 = driver.findElement(By.cssSelector("#three > div > form > div > div.\\33 u.\\31 2u\\$\\(small\\) > ul > li > input"));
+         /*
+       szukanie przycisku Buy Now i klik
+        WebElement selectBuyNow = driver.findElement(By.tagName("input"));
+       */
+        WebElement selectBuyNow2 = driver.findElement(By.cssSelector("#three > div > form > div > div.\\33 u.\\31 2u\\$\\(small\\) > ul > li > input"));
         selectBuyNow2.click();
-        //Sprawdzić czy jest na stonie po kliknięciu / basket
 
-        Assert.assertEquals(driver.getCurrentUrl(), "http://demo.guru99.com/payment-gateway/process_purchasetoy.php");
+        //Sprawdzić czy jest na stonie, która ładuje się po kliknięciu
+        Assert.assertEquals(driver.getCurrentUrl(), "https://demo.guru99.com/payment-gateway/process_purchasetoy.php");
 
+        //szukanie elementu, który zawiera zsumowaną kwotę
         WebElement basketValue = driver.findElement(By.cssSelector("#three > div > form > div.row > div > font:nth-child(2)"));
 
         Assert.assertEquals(basketValue.getText(), "$100.00");
@@ -110,11 +113,13 @@ public class Homework14 extends BaseTest {
         move.dragAndDrop(dragPoint, dropPoint);
 
         //WebElement elementDropped = driver.findElement(By.className("field13 ui-droppable ui-sortable"));
-        WebElement elementDropped = driver.findElement(By.cssSelector("#amt7 > li"));
+        WebElement elementDropped = driver.findElement(By.cssSelector("#amt7")); // wystarczy "#amt7" bez >li
        // WebElement elementDropped = driver.findElement(By.tagName("data-id")); //nie znajduje selektora
 
-        String textWhereDropped = elementDropped.getText();
+        String textWhereDropped = elementDropped.getText(); //twierdzi w asercji, że tu nie ma 5000
+
         Assert.assertEquals(textWhereDropped, "5000");
+
     }
 
     }

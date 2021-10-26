@@ -27,12 +27,13 @@ public class Homework15 extends BaseTest {
         driver.get("http://sampleshop.inqa.pl/");
 
         WebElement contactWithShop = driver.findElement(By.cssSelector("#link-static-page-contact-2"));
+        contactWithShop.click();
         //WebElement contactWithShop2 = driver.findElement(By.id("link-static-page-contact-2"));
         WebDriverWait wait = new WebDriverWait(driver, 10);
 
         WebElement selectSubject = driver.findElement(By.cssSelector("#content > section > form > section > div:nth-child(2) > div > select"));
         Select selectDFromDropdown = new Select(selectSubject);
-        selectDFromDropdown.selectByValue("Webmaster");
+        selectDFromDropdown.selectByValue("2"); //wybieramy numer dropdowna
 
         WebElement customerEmail = driver.findElement(By.cssSelector("#content > section > form > section > div:nth-child(3) > div > input"));
         customerEmail.sendKeys("test@mail");
@@ -45,7 +46,8 @@ public class Homework15 extends BaseTest {
 
         WebElement messageSent = driver.findElement(By.cssSelector("#content > section > form > div > ul > li"));
 
-        Assert.assertEquals(messageSent.getText(), "pomyślnie wysłana");
+        //w asercji musimy podać cały tekst znajdujący się w elemencie, a nie fragment
+        Assert.assertEquals(messageSent.getText(), "Twoja wiadomość została pomyślnie wysłana do obsługi.");
 
     }
 }
