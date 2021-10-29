@@ -1,12 +1,18 @@
 package AutomationTesting14;
 
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import java.util.List;
+
 
 /**
  * Zadanie domowe
@@ -50,4 +56,67 @@ public class Homework15 extends BaseTest {
         Assert.assertEquals(messageSent.getText(), "Twoja wiadomość została pomyślnie wysłana do obsługi.");
 
     }
+    @Test
+
+    public void taskSevenCount() {
+
+        driver.get("https://www.google.com/");
+        WebDriverWait wait = new WebDriverWait (driver, 10);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#L2AGLb")));
+        WebElement userConsent =driver.findElement(By.cssSelector("#L2AGLb"));
+        userConsent.click();
+
+        //WebElement searchField =driver.findElement(By.cssSelector("#input"));
+        //WebElement searchField =driver.findElement(By.id("inputWrapper"));
+        // WebElement searchField =driver.findElement(By.cssSelector("#inputWrapper"));
+        //WebElement searchField =driver.findElement(By.xpath("//*[@id='input']"));
+        //WebElement searchField =driver.findElement(By.xpath("//*[@id=\"input\"]"));
+
+        WebElement searchField = driver.findElement(By.xpath("//html/body/ntp-app//div/ntp-realbox//div/input"));
+        searchField.click();
+        searchField.sendKeys("java");
+        searchField.sendKeys(Keys.ENTER);
+
+        driver.findElement(By.id("Value")).sendKeys(Keys.ENTER);
+
+        //jak stąd wyłuszczyć te tagi, które w treci linków mają "java"? getText świeci na czerwono
+        //List<WebElement> numOfJavaSearchResults = driver.findElements(By.tagName("a")).contains(java);
+        List<WebElement> numOfJavaSearchResults = driver.findElements(By.tagName("a")).getText("java");
+
+        System.out.println(numOfJavaSearchResults.size());
+
+    }
+    @Test
+    public void taskEightJobSearch(){
+
+        driver.get("https://www.pracuj.pl/");
+        WebDriverWait wait1 = new WebDriverWait(driver, 10);
+        wait1.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#gp-cookie-agreements > div > div > div.g1kqzctt > div.bafq4sb > button")));
+        WebElement acceptCookies = driver.findElement(By.cssSelector("#gp-cookie-agreements > div > div > div.g1kqzctt > div.bafq4sb > button"));
+        acceptCookies.click();
+
+        WebElement searchedCriteria =driver.findElement(By.cssSelector("#kw-1635158591889"));
+        searchedCriteria.click();
+        searchedCriteria.sendKeys("tester");
+
+        WebElement searchedCity =driver.findElement(By.cssSelector("#wp-1635158591889"));
+        searchedCity.click();
+        searchedCity.sendKeys("Warszawa");
+
+        WebElement searchButton = driver.findElement(By.cssSelector("#fragment-search-markup > form > div.search--1jRKo > div.search--371g6 > button"));
+        searchButton.click();
+
+        WebDriverWait wait2 = new WebDriverWait(driver, 10);
+        wait2.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("#triggers > div.popover.popover__popup > div > div > button")));
+        WebElement remoteWork = driver.findElement(By.cssSelector("#triggers > div.popover.popover__popup > div > div > button"));
+        remoteWork.click();
+
+        //świeci całość na czerwono
+       // List<WebElement> jobList = driver.findElement(By.cssSelector("#results > ul"));
+        //List<WebElement> jobList = driver.findElement(By.tagName("#results > ul"));
+
+        List<WebElement> jobList = driver.findElement(By.xpath("B/html/body/div[1]/div[2]/div[10]/ul"));
+
+    }
+
 }
