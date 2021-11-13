@@ -107,16 +107,15 @@ public class Homework14 extends BaseTest {
 
         driver.get("http://demo.guru99.com/test/drag_drop.html");
         WebElement dragPoint = driver.findElement(By.id("fourth"));
-        WebElement dropPoint = driver.findElement(By.id("credit"));
+        WebElement dropPoint = driver.findElement(By.id("amt7"));
 
         Actions move = new Actions(driver);
-        move.dragAndDrop(dragPoint, dropPoint);
+        move.dragAndDrop(dragPoint, dropPoint).build().perform();
 
-        //WebElement elementDropped = driver.findElement(By.className("field13 ui-droppable ui-sortable"));
-        WebElement elementDropped = driver.findElement(By.cssSelector("#amt7")); // wystarczy "#amt7" bez >li
-       // WebElement elementDropped = driver.findElement(By.tagName("data-id")); //nie znajduje selektora
+        // WebElement elementDropped = driver.findElement(By.cssSelector("#amt7")); // wystarczy "#amt7" bez >li
+        WebElement elementDropped = driver.findElement(By.id("t7"));
 
-        String textWhereDropped = elementDropped.getText(); //twierdzi w asercji, że tu nie ma 5000
+        String textWhereDropped = elementDropped.getText();
 
         Assert.assertEquals(textWhereDropped, "5000");
 
