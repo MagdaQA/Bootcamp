@@ -81,9 +81,9 @@ public class Homework15 extends BaseTest {
 
         //jak stąd wyłuszczyć te tagi, które w treci linków mają "java"? getText świeci na czerwono
         //List<WebElement> numOfJavaSearchResults = driver.findElements(By.tagName("a")).contains(java);
-        List<WebElement> numOfJavaSearchResults = driver.findElements(By.tagName("a")).getText("java");
+       // List<WebElement> numOfJavaSearchResults = driver.findElements(By.tagName("a")).getText("java");
 
-        System.out.println(numOfJavaSearchResults.size());
+       // System.out.println(numOfJavaSearchResults.size());
 
     }
     @Test
@@ -115,7 +115,7 @@ public class Homework15 extends BaseTest {
        // List<WebElement> jobList = driver.findElement(By.cssSelector("#results > ul"));
         //List<WebElement> jobList = driver.findElement(By.tagName("#results > ul"));
 
-        List<WebElement> jobList = driver.findElement(By.xpath("B/html/body/div[1]/div[2]/div[10]/ul"));
+        //List<WebElement> jobList = driver.findElement(By.xpath("B/html/body/div[1]/div[2]/div[10]/ul"));
 
     }
 
