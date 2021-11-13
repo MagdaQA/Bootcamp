@@ -66,24 +66,19 @@ public class Homework15 extends BaseTest {
         WebElement userConsent =driver.findElement(By.cssSelector("#L2AGLb"));
         userConsent.click();
 
+        driver.findElement(By.name("q")).sendKeys("java", Keys.ENTER);
+        //driver.findElement(By.id("input")).sendKeys("java", Keys.ENTER);
         //WebElement searchField =driver.findElement(By.cssSelector("#input"));
         //WebElement searchField =driver.findElement(By.id("inputWrapper"));
         // WebElement searchField =driver.findElement(By.cssSelector("#inputWrapper"));
         //WebElement searchField =driver.findElement(By.xpath("//*[@id='input']"));
         //WebElement searchField =driver.findElement(By.xpath("//*[@id=\"input\"]"));
 
-        WebElement searchField = driver.findElement(By.xpath("//html/body/ntp-app//div/ntp-realbox//div/input"));
-        searchField.click();
-        searchField.sendKeys("java");
-        searchField.sendKeys(Keys.ENTER);
 
-        driver.findElement(By.id("Value")).sendKeys(Keys.ENTER);
+       List<WebElement> numOfJavaSearchResults = driver.findElements(By.tagName("a"));
+       numOfJavaSearchResults.contains("java");
 
-        //jak stąd wyłuszczyć te tagi, które w treci linków mają "java"? getText świeci na czerwono
-        //List<WebElement> numOfJavaSearchResults = driver.findElements(By.tagName("a")).contains(java);
-       // List<WebElement> numOfJavaSearchResults = driver.findElements(By.tagName("a")).getText("java");
-
-       // System.out.println(numOfJavaSearchResults.size());
+       System.out.println(numOfJavaSearchResults.size());
 
     }
     @Test
@@ -95,11 +90,12 @@ public class Homework15 extends BaseTest {
         WebElement acceptCookies = driver.findElement(By.cssSelector("#gp-cookie-agreements > div > div > div.g1kqzctt > div.bafq4sb > button"));
         acceptCookies.click();
 
-        WebElement searchedCriteria =driver.findElement(By.cssSelector("#kw-1635158591889"));
+        WebElement searchedCriteria =driver.findElement(By.id("kw-1636702588248"));
         searchedCriteria.click();
         searchedCriteria.sendKeys("tester");
 
-        WebElement searchedCity =driver.findElement(By.cssSelector("#wp-1635158591889"));
+
+        WebElement searchedCity =driver.findElement(By.id("wp-1636702588248"));
         searchedCity.click();
         searchedCity.sendKeys("Warszawa");
 
@@ -111,11 +107,11 @@ public class Homework15 extends BaseTest {
         WebElement remoteWork = driver.findElement(By.cssSelector("#triggers > div.popover.popover__popup > div > div > button"));
         remoteWork.click();
 
-        //świeci całość na czerwono
-       // List<WebElement> jobList = driver.findElement(By.cssSelector("#results > ul"));
-        //List<WebElement> jobList = driver.findElement(By.tagName("#results > ul"));
+        List<WebElement> jobList = driver.findElements(By.cssSelector("#results > ul"));
 
-        //List<WebElement> jobList = driver.findElement(By.xpath("B/html/body/div[1]/div[2]/div[10]/ul"));
+        List<WebElement> offerList = driver.findElements(By.cssSelector(".results__list-container-item"));
+
+        System.out.println(offerList.size());
 
     }
 
